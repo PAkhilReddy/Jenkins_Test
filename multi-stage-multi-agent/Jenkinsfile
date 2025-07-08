@@ -15,22 +15,22 @@ pipeline {
          sh 'mvn clean install'
        }
     }
-    stage('Build Docker Image') {
-      steps {
-        script {
+    //stage('Build Docker Image') {
+    //  steps {
+    //    script {
           // Build the Docker image using the Dockerfile
-          docker.build("ubuntu/HelloWorld.java:latest")
-        }
-     }
-   }
-   stage('Run Docker Container') {
-     steps {
-       script {
+    //      docker.build("ubuntu/HelloWorld.java:latest")
+    //    }
+   //  }
+  // }
+  // stage('Run Docker Container') {
+   //  steps {
+   //    script {
          // Run the Docker container
-         docker.image("your-dockerhub-username/HelloWorld.java:latest").run()
-       }
-     }
-   }
+   //      docker.image("your-dockerhub-username/HelloWorld.java:latest").run()
+  //     }
+  //   }
+//   }
     stage('Front-end') {
       agent {
         docker { image 'node:16-alpine' }
